@@ -1,0 +1,58 @@
+<!doctype html>
+
+
+<form id = "myform" action = "/submit" onsubmit= "return validateForm()"method = "POST">
+    City Name: <input type = "text" id="c" name="city" size = "20" required><br/>
+    Date : <input type = "date" id = "d" name="date" required><br/>
+    Time : <input type = "number" id = "t" name="time" min = "0" max="24" step = "3" required><br/>
+    Days : <input type = "number" id = "da" name="days" min = "1" max = "5"><br/>
+    <input type = "submit" name = "submit" placeholder="submit">
+</form>
+
+<script>
+	function validateForm(){
+		var fullDate = document.getElementById("myform").elements.item(1).value;
+   		var time = document.getElementById("myform").elements.item(2).value;
+   		[year,month,date] = fullDate.split("-");
+
+   		if(month < 9){
+   			month = month[1];
+   		}
+   		if(date < 9){
+   			date = date[1];
+   		}
+   		
+   		const curr_date = new Date().getDate();
+  	 	const curr_month = new Date().getMonth() + 1;
+  	 	const curr_year = new Date().getFullYear();
+  	 	const curr_hr = new Date().getHours();
+   		
+   		if(curr_year > year){
+   			alert("Choose Present or Future Year");
+   			return false;
+   		}
+   		else if(curr_year == year && curr_month > month){
+   			alert("Choose Present or Future Month");
+   			return false;
+   		}
+   		else if(curr_month == month && curr_date > date){
+   			alert("Choose Present or Future Date");
+   			return false;
+   		}
+
+   		if(curr_hr > time){
+   			alert("Choose Present or Future time");
+   			return false;
+   		}
+
+   	
+   		return true;
+	}
+	
+
+</script>
+
+</html>
+
+
+
