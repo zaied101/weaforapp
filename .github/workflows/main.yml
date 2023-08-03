@@ -7,5 +7,6 @@ jobs:
     runs-on : ubuntu-latest
     steps:
       - name: Create-Dir
-        run: mkdir ~/Test-Dir
-             git --version
+        run: |
+          mkdir ~/Test-Dir
+          git --version
