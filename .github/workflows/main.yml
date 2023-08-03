@@ -3,8 +3,9 @@ name: test-file
 on: workflow_dispatch
 
 jobs:
-  create-dir:
+  Download-Github-repo:
     runs-on : ubuntu-latest
     steps:
-      - name: test command
-        run: mkdir ~/test
+      - name: Create-Dir
+        run: mkdir ~/Test-Dir
+             git --version
