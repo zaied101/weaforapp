@@ -1,0 +1,10 @@
+name: test-file
+
+on: workflow_dispatch
+
+jobs:
+  create-dir:
+    runs-on : ubuntu-latest
+    steps:
+      - name: test command
+        run: mkdir ~/test
