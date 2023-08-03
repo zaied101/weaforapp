@@ -9,4 +9,10 @@ jobs:
       - name: Create-Dir
         run: |
           mkdir ~/Test-Dir
-          git --version
+          cd ~/Test-Dir
+          git init
+          git clone https://github.com/zaied54/weaforapp.git
+          ls -lrt
+          cd weaforapp
+          ls -lrt
+          
