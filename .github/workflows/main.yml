@@ -10,6 +10,10 @@ jobs:
        - run: |
           mkdir ~/ref-repo
           cd ~/ref-repo
+          touch readme.md
+          touch contributing.md
+          echo "confidental" > readme.md
+          
   Download-source-repo:
     name: Download-source-repo
     runs-on: ubuntu-latest
@@ -17,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           chmod +x ./validate-scripts/validator_pp.py
-          ls -lrt ./validate-scripts/
+          ./validate-scripts/validator_pp.py ~/ref-repo/
           
         
           
