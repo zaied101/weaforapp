@@ -9,7 +9,7 @@ jobs:
     steps:
        - uses: actions/checkout@v2
        - name: Download-ref-repo
-       - run: |
+         run: |
            mkdir ~/ref-repo
            cd ~/ref-repo
            touch readme.md
@@ -17,7 +17,7 @@ jobs:
            echo "confidental" > readme.md
     
        - name: Download-source-repo
-       - run: |
+         run: |
             chmod +x ./validate-scripts/validator_pp.py
             python3 ./validate-scripts/validator_pp.py ~/ref-repo/
           
