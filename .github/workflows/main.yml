@@ -3,16 +3,22 @@ name: test-file
 on: workflow_dispatch
 
 jobs:
-  Download-Github-repo:
-    runs-on : ubuntu-latest
+  Download-ref-repo:
+    name: Download-ref-repo
+    runs-on: ubuntu-latest
     steps:
-      - name: Create-Dir
-        run: |
-          mkdir ~/Test-Dir
-          cd ~/Test-Dir
-          git init
-          git clone https://github.com/zaied54/weaforapp.git
-          ls -lrt
-          cd weaforapp
-          ls -lrt
+       - run: |
+          mkdir ~/ref-repo
+          cd ~/ref-repo
+  Download-source-repo:
+    name: Download-source-repo
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          chmod +x ./validate-scripts/validator_pp.py
+          ls -lrt ./validate-scripts/
+          
+        
+          
           
