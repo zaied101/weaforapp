@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           chmod +x ./validate-scripts/validator_pp.py
-          ./validate-scripts/validator_pp.py ~/ref-repo/
+          python3 ./validate-scripts/validator_pp.py ~/ref-repo/
           
         
           
