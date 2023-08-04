@@ -1,6 +1,9 @@
 name: test-file
 
-on: workflow_dispatch
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   Validate:
@@ -20,6 +23,12 @@ jobs:
          run: |
             chmod +x ./validate-scripts/validator_pp.py
             python3 ./validate-scripts/validator_pp.py ~/ref-repo/
+
+       - name: Dump-Github-context
+         env:
+           GITHUB_CONTEXT: ${{ toJSON(github) }}
+         run: echo "$GITHUB_CONTEXT"
+            
           
         
           
