@@ -3,25 +3,24 @@ name: test-file
 on: workflow_dispatch
 
 jobs:
-  Download-ref-repo:
-    name: Download-ref-repo
+  Validate:
+    name: Validate
     runs-on: ubuntu-latest
     steps:
+       - uses: actions/checkout@v2
+       
+       - name: Download-ref-repo
        - run: |
-          mkdir ~/ref-repo
-          cd ~/ref-repo
-          touch readme.md
-          touch contributing.md
-          echo "confidental" > readme.md
-          
-  Download-source-repo:
-    name: Download-source-repo
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: |
-          chmod +x ./validate-scripts/validator_pp.py
-          python3 ./validate-scripts/validator_pp.py ~/ref-repo/
+           mkdir ~/ref-repo
+           cd ~/ref-repo
+           touch readme.md
+           touch contributing.md
+           echo "confidental" > readme.md
+    
+       - name: Download-source-repo
+       - run: |
+            chmod +x ./validate-scripts/validator_pp.py
+            python3 ./validate-scripts/validator_pp.py ~/ref-repo/
           
         
           
